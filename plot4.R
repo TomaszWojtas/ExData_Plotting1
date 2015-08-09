@@ -8,10 +8,10 @@ data$dt <- strptime(paste(as.character(data$Date),
                     "%d/%m/%Y %H:%M:%S")
 ## merging date and time and transforming it to right format
 
-png(file="plot4.png", width=450, height=450, res=80)
+png(file="plot4.png", width=450, height=450, res=65)
 ##output device and resolution
 
-par(mfrow=c(2,2), mar=c(5,5,1,1))
+par(mfrow=c(2,2), mar=c(5,5,4,2))
 ##creating four places for four plots with margins
 
 with(data, plot(as.POSIXct(data$dt),Global_active_power, 
@@ -25,7 +25,7 @@ with(data, plot(as.POSIXct(data$dt), Voltage, type="l",
 
 {
 with(data, plot(as.POSIXct(dt), Sub_metering_1, type="n",
-                ylab=" ", xlab=" "))
+                ylab="Energy sub metering", xlab=" "))
 with(data, lines(as.POSIXct(dt), data$Sub_metering_1))
 with(data, lines(as.POSIXct(dt), data$Sub_metering_2, col="red"))
 with(data, lines(as.POSIXct(dt), data$Sub_metering_3, col="blue"))
